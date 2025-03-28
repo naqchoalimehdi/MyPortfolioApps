@@ -24,9 +24,9 @@ class ChatRequest(BaseModel):
 @app.post("/chatbot")
 async def chat(request: ChatRequest):
     try:
-        prompt = "you are a comedian and you tell jokes about {user_input}."
+        prompt = "you are helpful assistant who responds to {user_input} sweetly and simply"
         prompt_template = PromptTemplate.from_template(prompt)
-        formatted_prompt = prompt_template.invoke({"user_input": request.user_input1}) #Corrected line
+        formatted_prompt = prompt_template.invoke({"user_input": request.user_input1}) 
         response = llm.invoke(formatted_prompt)
         return {"response": response.content}
     except Exception as e:
