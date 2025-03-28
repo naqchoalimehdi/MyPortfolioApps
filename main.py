@@ -21,7 +21,7 @@ def read_root():
 class ChatRequest(BaseModel):
     user_input1: str
 
-@app.post("/chatbot")
+@app.post("/tools/chatbot")
 async def chat(request: ChatRequest):
     try:
         prompt = "you are helpful assistant who responds to {user_input} sweetly and simply"
